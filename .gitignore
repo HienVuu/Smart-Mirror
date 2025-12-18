@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+photos/
+.vscode/
+.idea/
+venv/
+env/
+*.log
