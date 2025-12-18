@@ -1,0 +1,16 @@
+# Core Logic & UI
+opencv-python
+PyQt5
+requests
+
+# AI & Machine Learning
+mediapipe==0.10.9
+protobuf==3.20.3
+google-generativeai
+
+# Voice & Audio
+SpeechRecognition
+pyaudio
+
+# Utilities
+feedparser
