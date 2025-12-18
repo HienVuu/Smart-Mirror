@@ -78,13 +78,13 @@ Executables compiled on Windows (x86) are not compatible with Raspberry Pi (ARM)
 
 Navigate to the project directory and run:
 
-# Remove old Windows executables if present
+(Remove old Windows executables if present)
 rm *.exe
 
-# Compile the gesture decision module
+(Compile the gesture decision module)
 g++ hand_decision.cpp -o hand_decision
 
-# Compile the timer module (if available)
+(Compile the timer module (if available))
 g++ camera_timer.cpp -o camera_timer
 
 ## Usage Instructions
