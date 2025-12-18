@@ -33,7 +33,7 @@ Hardware: Raspberry Pi 4 Model B or Standard Laptop (x86_64).
 
 Peripherals: USB Webcam and Microphone.
 
-## Installation Guide
+## Installation Guide for Win/Linux
 1. Environment Setup
 It is recommended to use Conda to manage the specific Python version required.
 
@@ -59,6 +59,33 @@ Open main.py and update the following constants with your valid API keys:
 WEATHER_API_KEY = "YOUR_OPENWEATHERMAP_API_KEY"
 GEMINI_API_KEY = "YOUR_GOOGLE_GEMINI_API_KEY"
 CITY = "Hanoi"
+
+## Installation Guide for Raspberry Pi 4
+This section outlines specific configurations required when deploying the system on a Raspberry Pi 4 Model B (ARM64 architecture).
+
+1. Operating System Requirement
+The Raspberry Pi OS (64-bit) is strictly required. The MediaPipe library does not support the legacy 32-bit architecture.
+
+Recommended Image: Raspberry Pi OS with desktop (64-bit).
+2. System Dependencies
+Before installing Python packages, essential system-level libraries for audio and image processing must be installed via APT.
+
+ sudo apt update
+sudo apt install -y python3-pyaudio portaudio19-dev libgl1-mesa-glx libhdf5-dev libatlas-base-dev
+
+3. Re-compilation of Logic Modules
+Executables compiled on Windows (x86) are not compatible with Raspberry Pi (ARM). The C++ logic modules must be re-compiled natively on the device.
+
+Navigate to the project directory and run:
+
+# Remove old Windows executables if present
+rm *.exe
+
+# Compile the gesture decision module
+g++ hand_decision.cpp -o hand_decision
+
+# Compile the timer module (if available)
+g++ camera_timer.cpp -o camera_timer
 
 ## Usage Instructions
 Run the main application entry point:
